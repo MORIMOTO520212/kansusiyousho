@@ -74,3 +74,14 @@ div#drag-area p, div#drag-area .btn-group{
     text-align: center;
     color: #eee;
 }
+
+div.filename-area{
+    width: 56%;
+    margin: 10px auto;
+}
+div.filename-area .filename{
+    font-family: "Google Sans","Roboto","Arial",sans-serif;
+    font-size: 26px;
+    text-align: center;
+    color: #eee;
+}

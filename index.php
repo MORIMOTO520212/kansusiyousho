@@ -86,6 +86,9 @@ if(isset($_COOKIE['folder'])){
                     dt = Cookies.get("fileName")+","+files[i]["name"];
                     Cookies.set("fileName", dt);
                     console.log("cookie set: ['fileName'] -> "+files[i]["name"]);
+                    // ファイル名をページに表示させる
+                    fileNameElement = document.getElementById("filename");
+                    fileNameElement.innerHTML = fileNameElement.textContent + "　" + files[i]["name"];
                 }
                 fd.append("files[]", files[i]);
             }
@@ -119,6 +122,9 @@ if(isset($_COOKIE['folder'])){
                 <input type="file" multiple="multiple" style="display:none;" name="files"/>
                 <button id="btn">ファイルを選択</button>
             </div>
+        </div>
+        <div class="filename-area">
+            <div id="filename" class="filename"></div>
         </div>
         <div class="analysis">
             <a href="javascript:analysis()"></a>

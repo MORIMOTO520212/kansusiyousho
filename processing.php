@@ -1,4 +1,5 @@
 <?php
+
 $folderName = $_COOKIE["folder"];
 // cookieからファイル名のリストを取り出す
 $fileNames = $_COOKIE["fileName"];
@@ -20,8 +21,12 @@ foreach ($fileNames as $fileName) {
         echo $fileName." :<br>";
         var_dump($status);
         echo "<br>";
+        // -- pythonでwordを処理 -- //
+
+
+        // 最後にファイルを削除
+        unlink("process/".$_COOKIE["folder"]."/".$fileName);
     }
 }
-// 最後にファイルとディレクトリを削除
-// unlink($_COOKIE["folder"].$filename);
-// rmdir($_COOKIE["folder"]);
+// プログラムの終了にディレクトリを削除
+rmdir("process/".$_COOKIE["folder"]);
