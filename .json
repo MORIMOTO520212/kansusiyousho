@@ -1,0 +1,21 @@
+{
+    "function": {
+        "double": {
+            "function2": {
+                "int": ["a", "b"],
+                "return": "double"
+            }
+        },
+        "int": {
+            "function1": {
+                "double": ["a", "b"],
+                "return": "int"
+            },
+            "main": {}
+        }
+    },
+    "variable": {
+        "double": ["a", " b", " c", "result"],
+        "int": ["e", " f", " g", "a", " b", " c", "d", "average"]
+    }
+}

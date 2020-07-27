@@ -1,0 +1,59 @@
+p{
+    font-family: "Google Sans","Roboto","Arial",sans-serif;
+    font-weight: bold;
+}
+
+body{
+    background-color: #323639;
+    margin: 0px;
+}
+
+div.title{
+    font-size: 40px;
+    color: #eee;
+    width: 546px;
+    margin: 0 auto;
+}
+
+div.header{
+    height: 5px;
+    width: 100%;
+    background: linear-gradient(-135deg, #188038, #FBBC04);
+}
+
+div.footer{
+    height: 5px;
+    width: 100%;
+    background: linear-gradient(-135deg, #188038, #FBBC04);
+}
+
+form.box{
+    margin: 0 auto;
+    width: 619px;
+}
+
+textarea{
+    border-radius: 10px;
+    background-color: #eee;
+}
+
+.analysis{
+    position: relative;
+    margin: 0 auto;
+    background-color: #1a73e8;
+    width: 143px;
+    border-radius: 20px;
+}
+.analysis p{
+    text-align: center;
+    font-size: 30px;
+    color: #eee;
+}
+.analysis a{
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
