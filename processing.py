@@ -266,7 +266,8 @@ for string in code:
             blockDetector = functionName
 
 #pprint.pprint(status, indent=4, width=80)
-
+print(status)
+'''
 if status["main"]:
     print("関数名: main\n")
 print("< - 変数 - >")
@@ -288,3 +289,4 @@ for functionType in status["function"].keys():
                 print("")
             else:
                 print("| | 戻り値あり")
+'''

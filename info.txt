@@ -8,4 +8,8 @@
 GitHubにオープンソースとして配布する
 
 ファイルをドロップ出来るようにする
-phpwordを使って関数仕様書を作る
+phpwordを使って関数仕様書を作る　ダウンロード機能が既に備わっている
+
+COOKIE
+[fileName] -> 0,main.c,random.c
+[folder] -> 98378
