@@ -113,7 +113,7 @@ if(isset($_COOKIE['folder'])){
         </form>
         -->
         <div id="drag-area">
-            <p>アップロードするファイルをドロップ</p>
+            <p>アップロードするファイルをまとめてドロップ</p>
             <p>または</p>
             <div class="btn-group">
                 <input type="file" multiple="multiple" style="display:none;" name="files"/>

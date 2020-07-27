@@ -6,10 +6,10 @@ $fileNames = $_COOKIE["fileName"];
 $fileNames = preg_split('/,/', $fileNames);
 // 配列からファイル名を取り出す
 foreach ($fileNames as $fileName) {
-    if "0" != $fileNames:
-        $source = file_get_contents("process/".$folderName."/".$fileName, true);
+    if("0" != $fileName){
+        $dir = "process/".$folderName."/".$fileName;
         // python実行
-        $command = "python processing.py \"".$source."\"";
+        $command = "python processing.py ".$dir;
         exec($command, $output);
         $str = str_replace("'", "\"", $output[0]);
         $str = str_replace("\"{", "{", $str);
@@ -17,9 +17,10 @@ foreach ($fileNames as $fileName) {
         $str = str_replace(": True", ": true", $str);
         $str = str_replace(": False", ": false", $str);
         $status = json_decode($str, true);
-        echo $fileName." :\n";
+        echo $fileName." :<br>";
         var_dump($status);
-
+        echo "<br>";
+    }
 }
 // 最後にファイルとディレクトリを削除
 // unlink($_COOKIE["folder"].$filename);

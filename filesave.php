@@ -13,7 +13,7 @@
 		if (is_uploaded_file($_FILES["files"]["tmp_name"][$i])){
 			if (move_uploaded_file($_FILES["files"]["tmp_name"][$i], "process/".$dir."/".$_FILES["files"]["name"][$i])){
                 //echo "ok:" . $_FILES["files"]["name"][$i] . "\n";
-                echo "ファイルのアップロードが完了しました。\n".$_FILES["files"]["name"][$i];
+                echo "ファイルのアップロードが完了しました。";
 			}
 			else{
                 echo "ファイルがアップロードできませんでした。\n" . $_FILES["files"]["name"][$i];

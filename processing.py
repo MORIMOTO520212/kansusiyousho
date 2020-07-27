@@ -18,31 +18,9 @@ import re, sys, pprint
 #  | 型 double :c 
 #-----------------------------------------#
 args = sys.argv
-with open(args[0], 'r') as f:
+dirpath = args[1]
+with open(dirpath, 'r', encoding='utf-8') as f:
     source = f.read()
-'''
-// 実験用ソースコード
-#include<stdio.h>
-double maxfunction(int za, int zb){
-    int i;
-    return result;
-}
-double minfunction(double xa, double xb){
-    int sum;
-    for(int i = 0; i < 10; i++){
-        sum += i;
-    }
-    return sum;
-}
-int main(){
-    double result, result2;
-    result  = minfunction(5, 10);
-    result2 = maxfunction(5, 10);
-    printf("%d%d",result ,result2);
-    return 0;
-}
-'''
-
 # 改行コード削除
 source = source.replace("\n", "")
 # 無駄な空白削除

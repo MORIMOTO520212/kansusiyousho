@@ -63,12 +63,14 @@ textarea{
 }
 
 div#drag-area{
-    border-style: groove;
-    background-color: #d06dd2;
+    border-style: dotted;
+    border-color: #5d5d5d;
+    background-color: #323639;
     margin: 0 auto;
     width: 56%;
 }
 
 div#drag-area p, div#drag-area .btn-group{
     text-align: center;
+    color: #eee;
 }
