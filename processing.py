@@ -1,4 +1,4 @@
-import re, pprint
+import re, sys, pprint
 #-------------- 出力例 ----------------------#
 #関数名: main
 #
@@ -17,8 +17,11 @@ import re, pprint
 #  | 型 int :a  b  
 #  | 型 double :c 
 #-----------------------------------------#
-source = \
+args = sys.argv
+with open(args[0], 'r') as f:
+    source = f.read()
 '''
+// 実験用ソースコード
 #include<stdio.h>
 double maxfunction(int za, int zb){
     int i;

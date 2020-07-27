@@ -9,7 +9,7 @@ foreach ($fileNames as $fileName) {
     if "0" != $fileNames:
         $source = file_get_contents("process/".$folderName."/".$fileName, true);
         // python実行
-        $command = "python processing.py";
+        $command = "python processing.py \"".$source."\"";
         exec($command, $output);
         $str = str_replace("'", "\"", $output[0]);
         $str = str_replace("\"{", "{", $str);
