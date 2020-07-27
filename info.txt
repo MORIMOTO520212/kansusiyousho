@@ -9,7 +9,11 @@ GitHubにオープンソースとして配布する
 
 ファイルをドロップ出来るようにする
 phpwordを使って関数仕様書を作る　ダウンロード機能が既に備わっている
-
+同じ名前のファイルをアップロードした場合上書きされる
 COOKIE
 [fileName] -> 0,main.c,random.c
 [folder] -> 98378
+
+~NOTE~
+どのようにしてprocessing.pyにデータを渡すのか
+    processing.pyでファイルを探して調べるか、引数を指定するか

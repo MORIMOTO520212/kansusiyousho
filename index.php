@@ -1,3 +1,10 @@
+<?php
+// フォルダの名前を決めて24時間cookieに保存する - 既にある場合はリセットするため削除する
+if(isset($_COOKIE['folder'])){
+    setcookie('folder', '', time()-3600*24);
+}
+?>
+
 <!doctype html>
 <html>
     <head>
@@ -10,49 +17,54 @@
         <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
         <script>
             function analysis(){
-                var sourceCode = document.forms.box.textarea.value;
-                console.log(sourceCode);
-                window.location.href = "processing.php?source="+btoa(sourceCode);
+                if("0" != Cookies.get("fileName")){
+                    window.location.href = "processing.php";
+                    console.log("window location href: processing.php")
+                }
+                else{
+                    alert("ファイルをアップロードしてください。");
+                    console.log("cookie failue.")
+                }
             }
-            Cookies.set("fileName", "0")
+            Cookies.set("fileName", "0");
+            console.log("cookie set: ['fileName'] -> 0");
         </script>
         <script>
             $(function(){
-            /*================================================
-                ファイルをドロップした時の処理
-            =================================================*/
-            $('#drag-area').bind('drop', function(e){
-                // デフォルトの挙動を停止
-                e.preventDefault();
-            
-                // ファイル情報を取得
-                var files = e.originalEvent.dataTransfer.files;
-            
-                uploadFiles(files);
-            
-            }).bind('dragenter', function(){
-                // デフォルトの挙動を停止
-                return false;
-            }).bind('dragover', function(){
-                // デフォルトの挙動を停止
-                return false;
-            });
-            
-            /*================================================
-                ダミーボタンを押した時の処理
-            =================================================*/
-            $('#btn').click(function() {
-                // ダミーボタンとinput[type="file"]を連動
-                $('input[type="file"]').click();
-            });
-            
-            $('input[type="file"]').change(function(){
-                // ファイル情報を取得
-                var files = this.files;
-            
-                uploadFiles(files);
-            });
-            
+                /*================================================
+                    ファイルをドロップした時の処理
+                =================================================*/
+                $('#drag-area').bind('drop', function(e){
+                    // デフォルトの挙動を停止
+                    e.preventDefault();
+                
+                    // ファイル情報を取得
+                    var files = e.originalEvent.dataTransfer.files;
+                
+                    uploadFiles(files);
+                
+                }).bind('dragenter', function(){
+                    // デフォルトの挙動を停止
+                    return false;
+                }).bind('dragover', function(){
+                    // デフォルトの挙動を停止
+                    return false;
+                });
+                
+                /*================================================
+                    ダミーボタンを押した時の処理
+                =================================================*/
+                $('#btn').click(function() {
+                    // ダミーボタンとinput[type="file"]を連動
+                    $('input[type="file"]').click();
+                });
+                
+                $('input[type="file"]').change(function(){
+                    // ファイル情報を取得
+                    var files = this.files;
+                
+                    uploadFiles(files);
+                });
             });
             
             /*================================================
@@ -67,10 +79,14 @@
             
             // ファイル情報を追加
             for (var i = 0; i < filesLength; i++) {
-                alert("FILE NAME: "+files[i]["name"]);
+                console.log("get file name: "+files[i]["name"]);
                 // ファイル名をcookieに保存
-                dt = Cookies.get("fileName")+","+files[i]["name"];
-                Cookies.set("fileName", dt);
+                cookiesGet = Cookies.get('fileName');
+                if(cookiesGet.indexOf(files[i]["name"]) == -1){
+                    dt = Cookies.get("fileName")+","+files[i]["name"];
+                    Cookies.set("fileName", dt);
+                    console.log("cookie set: ['fileName'] -> "+files[i]["name"]);
+                }
                 fd.append("files[]", files[i]);
             }
             
