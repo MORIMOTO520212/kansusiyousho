@@ -14,6 +14,3 @@ COOKIE
 [fileName] -> 0,main.c,random.c
 [folder] -> 98378
 
-~NOTE~
-どのようにしてprocessing.pyにデータを渡すのか
-    processing.pyでファイルを探して調べるか、引数を指定するか
