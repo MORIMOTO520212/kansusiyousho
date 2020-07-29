@@ -1,4 +1,4 @@
-import re, sys, pprint
+import re, sys, pprint, word
 #-------------- 出力例 ----------------------#
 #関数名: main
 #
@@ -18,7 +18,8 @@ import re, sys, pprint
 #  | 型 double :c 
 #-----------------------------------------#
 args = sys.argv
-dirpath = args[1]
+dirpath  = args[1]
+fileName = args[2]
 with open(dirpath, 'r', encoding='utf-8') as f:
     source = f.read()
 # 改行コード削除
@@ -247,7 +248,13 @@ for string in code:
             blockDetector = functionName
 
 #pprint.pprint(status, indent=4, width=80)
-print(status)
+try:
+    word = word.transform(status, fileName)
+    with open("test.xml", "w", encoding='utf-8') as f:
+        f.write(word)
+    print("True")
+except Exception as e:
+    print("False: "+e)
 '''
 if status["main"]:
     print("関数名: main\n")

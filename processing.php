@@ -10,7 +10,7 @@ foreach ($fileNames as $fileName) {
     if("0" != $fileName){
         $dir = "process/".$folderName."/".$fileName;
         // python実行
-        $command = "python processing.py ".$dir;
+        $command = "python processing.py ".$dir." ".$fileName;
         exec($command, $output);
         $str = str_replace("'", "\"", $output[0]);
         $str = str_replace("\"{", "{", $str);
