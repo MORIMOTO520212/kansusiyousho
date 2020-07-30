@@ -21,9 +21,17 @@ source = \
 """
 #include<stdio.h>
 
-double func1(double x, double z){
+double func2(double y, double z){
+    return false;
+}
+
+double func1(double x, int z){
     result = x + z;
     return result;
+}
+
+void func3(char x){
+    return 0;
 }
 
 int main(){
@@ -69,22 +77,22 @@ def multiplyCombine(data, dictpath):
     # 関数の引数をstatusに格納する
     for functionv in data:
         if "int" in functionv:
-            multiplyCombineCheckandSet(dictpath, "int", functionv)
+            multiplyCombineCheckandSet(dictpath, "int",    functionv)
 
         elif "double" in functionv:
             multiplyCombineCheckandSet(dictpath, "double", functionv)
 
         elif "float" in functionv:
-            multiplyCombineCheckandSet(dictpath, "float", functionv)
+            multiplyCombineCheckandSet(dictpath, "float",  functionv)
 
         elif "char" in functionv:
-            multiplyCombineCheckandSet(dictpath, "char", functionv)
+            multiplyCombineCheckandSet(dictpath, "char",   functionv)
 
         elif "short" in functionv:
-            multiplyCombineCheckandSet(dictpath, "short", functionv)
+            multiplyCombineCheckandSet(dictpath, "short",  functionv)
 
         elif "long" in functionv:
-            multiplyCombineCheckandSet(dictpath, "long", functionv)
+            multiplyCombineCheckandSet(dictpath, "long",   functionv)
 
 def addVariable(type, var):
     # 変数名抽出してstatusに格納する
@@ -92,7 +100,7 @@ def addVariable(type, var):
     var = var.replace(";", "")
     var = var.split(",")
     for variable in var:
-        variable = variable.split("=") # イコール削除
+        variable = variable.split("=")          # イコール削除
         variable = variable[0].replace(" ", "") # 余白削除
         try:
             status["variable"][type].append(variable)
@@ -103,33 +111,42 @@ def multiplyCheckandSet(type, functionName):
     # 関数名と型がstatusに格納されているか判断し、なかった場合は作成
     try:
         status["function"][type][functionName] = {}
-        intFuncdict = status["function"][type][functionName]
+        Funcdict = status["function"][type][functionName]
     except:
         status["function"][type] = {}
         status["function"][type][functionName] = {}
-        intFuncdict = status["function"][type][functionName]
-    return intFuncdict
+        Funcdict = status["function"][type][functionName]
+    return Funcdict
 
 def addFunction(type, function):
     # 関数かどうかを判断して関数でなければFalseを返す
+
+    if type == "void":
+        function = function[5:]
+        function = re.split("[\(\)]", function)
+        funv = function[1].split(",")
+        if " " not in function[0]:
+            Funcdict = multiplyCheckandSet(type, function[0])
+            multiplyCombine(funv, Funcdict)
+            return function[0]
+
     if type == "int":
-        function = function[4:] # 型名削除
+        function = function[4:]                 # 型名削除
         function = re.split("[\(\)]", function) # ex: ['function','int a, int b']
-        funv = function[1].split(",") # ex: ['int a', 'int b']
-        if " " not in function[0]:    # 関数名に余白がない場合
-            intFuncdict = multiplyCheckandSet("int", function[0])
-            multiplyCombine(funv, intFuncdict)
+        funv = function[1].split(",")           # ex: ['int a', 'int b']
+        if " " not in function[0]:              # 関数名に余白がない場合
+            Funcdict = multiplyCheckandSet(type, function[0])
+            multiplyCombine(funv, Funcdict)
             return function[0]
         return False
-
 
     if type == "double":
         function = function[7:]
         function = re.split("[\(\)]", function)
         funv = function[1].split(",")
         if " " not in function[0]:
-            intFuncdict = multiplyCheckandSet("double", function[0])
-            multiplyCombine(funv, intFuncdict)
+            Funcdict = multiplyCheckandSet(type, function[0])
+            multiplyCombine(funv, Funcdict)
             return function[0]
         return False
 
@@ -138,8 +155,8 @@ def addFunction(type, function):
         function = re.split("[\(\)]", function)
         funv = function[1].split(",")
         if " " not in function[0]:
-            intFuncdict = multiplyCheckandSet("float", function[0])
-            multiplyCombine(funv, intFuncdict)
+            Funcdict = multiplyCheckandSet(type, function[0])
+            multiplyCombine(funv, Funcdict)
             return function[0]
         return False
 
@@ -148,8 +165,8 @@ def addFunction(type, function):
         function = re.split("[\(\)]", function)
         funv = function[1].split(",")
         if " " not in function[0]:
-            intFuncdict = multiplyCheckandSet("char", function[0])
-            multiplyCombine(funv, intFuncdict)
+            Funcdict = multiplyCheckandSet(type, function[0])
+            multiplyCombine(funv, Funcdict)
             return function[0]
         return False
 
@@ -158,8 +175,8 @@ def addFunction(type, function):
         function = re.split("[\(\)]", function) # ex: ['function','int a, int b']
         funv = function[1].split(",") # ex: ['int a', 'int b']
         if " " not in function[0]:
-            intFuncdict = multiplyCheckandSet("short", function[0])
-            multiplyCombine(funv, intFuncdict)
+            Funcdict = multiplyCheckandSet(type, function[0])
+            multiplyCombine(funv, Funcdict)
             return function[0]
         return False
 
@@ -168,8 +185,8 @@ def addFunction(type, function):
         function = re.split("[\(\)]", function) # ex: ['function','int a, int b']
         funv = function[1].split(",") # ex: ['int a', 'int b']
         if " " not in function[0]:
-            intFuncdict = multiplyCheckandSet("long", function[0])
-            multiplyCombine(funv, intFuncdict)
+            Funcdict = multiplyCheckandSet(type, function[0])
+            multiplyCombine(funv, Funcdict)
             return function[0]
         return False
 
@@ -210,16 +227,22 @@ for string in code:
 # 関数を検出し、関数宣言子と引数の型と引数名を調べる
 for string in code:
     # 非貪欲マッチ
-    int_match    = re.findall('int .*\(.*\)', string) # ex: int function(int a, int b)
+    void_match   = re.findall('void .*\(.*\)',   string)
+    int_match    = re.findall('int .*\(.*\)',    string) # ex: int function(int a, int b)
     double_match = re.findall('double .*\(.*\)', string)
-    float_match  = re.findall('float .*\(.*\)', string)
-    char_match   = re.findall('char .*\(.*\)', string)
-    short_match  = re.findall('short .*\(.*\)', string)
-    long_match   = re.findall('long .*\(.*\)', string)
+    float_match  = re.findall('float .*\(.*\)',  string)
+    char_match   = re.findall('char .*\(.*\)',   string)
+    short_match  = re.findall('short .*\(.*\)',  string)
+    long_match   = re.findall('long .*\(.*\)',   string)
+
+    if [] != void_match:
+        functionName = addFunction("void", void_match[0])
+        if functionName: # 関数だった場合
+            type = "void"
 
     if [] != int_match:
         functionName = addFunction("int", int_match[0])
-        if functionName: # 関数だった場合
+        if functionName:
             type = "int"
             if "main" in int_match[0]:
                 status["main"] = True # メインファイルだった場合
@@ -264,8 +287,11 @@ for string in code:
 try:
     print(status)
     word = word.transform(status, "main")
-    with open("test.xml", "w", encoding='utf-8') as f:
-        f.write(word)
-    print("True")
+    if word:
+        with open("test.xml", "w", encoding='utf-8') as f:
+            f.write(word)
+        print("出力成功")
+    else:
+        print("組み合わせ失敗")
 except Exception as e:
     print("False: "+str(e))

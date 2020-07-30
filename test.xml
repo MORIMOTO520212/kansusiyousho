@@ -138,7 +138,7 @@
               <w:rPr>
                 <w:rFonts w:eastAsia="ＭＳ 明朝" w:hint="eastAsia" />
               </w:rPr>
-              <w:t>int</w:t>
+              <w:t>なし</w:t>
             </w:r>
           </w:p>
 
@@ -187,7 +187,7 @@
               <w:rPr>
                 <w:rFonts w:eastAsia="ＭＳ 明朝" w:hint="eastAsia" />
               </w:rPr>
-              <w:t>x, z, </w:t>
+              <w:t>なし</w:t>
             </w:r>
           </w:p>
 
@@ -307,7 +307,7 @@
         <w:rPr>
             <w:rFonts w:eastAsia="ＭＳ 明朝" />
         </w:rPr>
-        <w:t>int</w:t>
+        <w:t>i</w:t>
         </w:r>
     </w:p>
     </w:tc>
@@ -326,7 +326,7 @@
         <w:rPr>
             <w:rFonts w:eastAsia="ＭＳ 明朝" />
         </w:rPr>
-        <w:t>i</w:t>
+        <w:t>int</w:t>
         </w:r>
     </w:p>
     </w:tc>
@@ -354,25 +354,6 @@
     </w:tc>
 </w:tr>
 <w:tr w:rsidR="00CF069B" w:rsidTr="006A2C65">
-    <w:tc>
-    <w:tcPr>
-        <w:tcW w:w="1815" w:type="dxa" />
-    </w:tcPr>
-    <w:p w:rsidR="00CF069B" w:rsidRDefault="00E011AF">
-        <w:pPr>
-        <w:pStyle w:val="TableContents" />
-        <w:rPr>
-            <w:rFonts w:eastAsia="ＭＳ 明朝" />
-        </w:rPr>
-        </w:pPr>
-        <w:r>
-        <w:rPr>
-            <w:rFonts w:eastAsia="ＭＳ 明朝" />
-        </w:rPr>
-        <w:t>int</w:t>
-        </w:r>
-    </w:p>
-    </w:tc>
     <w:tc>
     <w:tcPr>
         <w:tcW w:w="1815" w:type="dxa" />
@@ -394,6 +375,25 @@
     </w:tc>
     <w:tc>
     <w:tcPr>
+        <w:tcW w:w="1815" w:type="dxa" />
+    </w:tcPr>
+    <w:p w:rsidR="00CF069B" w:rsidRDefault="00E011AF">
+        <w:pPr>
+        <w:pStyle w:val="TableContents" />
+        <w:rPr>
+            <w:rFonts w:eastAsia="ＭＳ 明朝" />
+        </w:rPr>
+        </w:pPr>
+        <w:r>
+        <w:rPr>
+            <w:rFonts w:eastAsia="ＭＳ 明朝" />
+        </w:rPr>
+        <w:t>int</w:t>
+        </w:r>
+    </w:p>
+    </w:tc>
+    <w:tc>
+    <w:tcPr>
         <w:tcW w:w="6007" w:type="dxa" />
     </w:tcPr>
     <w:p w:rsidR="00CF069B" w:rsidRDefault="00E011AF" w:rsidP="006A2C65">
@@ -416,25 +416,6 @@
     </w:tc>
 </w:tr>
 <w:tr w:rsidR="00CF069B" w:rsidTr="006A2C65">
-    <w:tc>
-    <w:tcPr>
-        <w:tcW w:w="1815" w:type="dxa" />
-    </w:tcPr>
-    <w:p w:rsidR="00CF069B" w:rsidRDefault="00E011AF">
-        <w:pPr>
-        <w:pStyle w:val="TableContents" />
-        <w:rPr>
-            <w:rFonts w:eastAsia="ＭＳ 明朝" />
-        </w:rPr>
-        </w:pPr>
-        <w:r>
-        <w:rPr>
-            <w:rFonts w:eastAsia="ＭＳ 明朝" />
-        </w:rPr>
-        <w:t>int</w:t>
-        </w:r>
-    </w:p>
-    </w:tc>
     <w:tc>
     <w:tcPr>
         <w:tcW w:w="1815" w:type="dxa" />
@@ -456,6 +437,25 @@
     </w:tc>
     <w:tc>
     <w:tcPr>
+        <w:tcW w:w="1815" w:type="dxa" />
+    </w:tcPr>
+    <w:p w:rsidR="00CF069B" w:rsidRDefault="00E011AF">
+        <w:pPr>
+        <w:pStyle w:val="TableContents" />
+        <w:rPr>
+            <w:rFonts w:eastAsia="ＭＳ 明朝" />
+        </w:rPr>
+        </w:pPr>
+        <w:r>
+        <w:rPr>
+            <w:rFonts w:eastAsia="ＭＳ 明朝" />
+        </w:rPr>
+        <w:t>int</w:t>
+        </w:r>
+    </w:p>
+    </w:tc>
+    <w:tc>
+    <w:tcPr>
         <w:tcW w:w="6007" w:type="dxa" />
     </w:tcPr>
     <w:p w:rsidR="00CF069B" w:rsidRDefault="00E011AF" w:rsidP="006A2C65">
@@ -493,7 +493,7 @@
         <w:rPr>
             <w:rFonts w:eastAsia="ＭＳ 明朝" />
         </w:rPr>
-        <w:t>double</w:t>
+        <w:t>result</w:t>
         </w:r>
     </w:p>
     </w:tc>
@@ -512,7 +512,7 @@
         <w:rPr>
             <w:rFonts w:eastAsia="ＭＳ 明朝" />
         </w:rPr>
-        <w:t>result</w:t>
+        <w:t>double</w:t>
         </w:r>
     </w:p>
     </w:tc>
@@ -710,6 +710,114 @@
                     <w:rFonts w:eastAsia="ＭＳ 明朝" w:hint="eastAsia" />
                     <w:lang w:val="en-US" />
                 </w:rPr>
+                <w:t>func2</w:t>
+            </w:r>
+        </w:p>
+    </w:tc>
+
+    <w:tc>
+        <w:tcPr>
+            <w:tcW w:w="1395" w:type="dxa" />
+            <w:vMerge w:val="restart" />
+        </w:tcPr>
+        <w:p w:rsidR="00701D6D" w:rsidRDefault="00701D6D">
+            <w:pPr>
+                <w:pStyle w:val="TableContents" />
+                <w:rPr>
+                    <w:rFonts w:eastAsia="ＭＳ 明朝" />
+                </w:rPr>
+            </w:pPr>
+            <w:r>
+                <w:rPr>
+                    <w:rFonts w:eastAsia="ＭＳ 明朝" />
+                </w:rPr>
+                <w:t>double</w:t>
+            </w:r>
+        </w:p>
+    </w:tc>
+
+    <w:tc>
+        <w:tcPr>
+            <w:tcW w:w="960" w:type="dxa" />
+        </w:tcPr>
+        <w:p w:rsidR="00701D6D" w:rsidRDefault="00701D6D">
+            <w:pPr>
+                <w:pStyle w:val="TableContents" />
+                <w:rPr>
+                    <w:rFonts w:eastAsia="ＭＳ 明朝" />
+                </w:rPr>
+            </w:pPr>
+            <w:r>
+                <w:rPr>
+                    <w:rFonts w:eastAsia="ＭＳ 明朝" />
+                </w:rPr>
+                <w:t>y, z, </w:t>
+            </w:r>
+        </w:p>
+    </w:tc>
+
+    <w:tc>
+        <w:tcPr>
+            <w:tcW w:w="1185" w:type="dxa" />
+        </w:tcPr>
+        <w:p w:rsidR="00701D6D" w:rsidRDefault="00701D6D">
+            <w:pPr>
+                <w:pStyle w:val="TableContents" />
+                <w:rPr>
+                    <w:rFonts w:eastAsia="ＭＳ 明朝" />
+                </w:rPr>
+            </w:pPr>
+            <w:r>
+                <w:rPr>
+                    <w:rFonts w:eastAsia="ＭＳ 明朝" />
+                </w:rPr>
+                <w:t>double, </w:t>
+            </w:r>
+        </w:p>
+    </w:tc>
+
+    <w:tc>
+        <w:tcPr>
+            <w:tcW w:w="5137" w:type="dxa" />
+            <w:vMerge w:val="restart" />
+        </w:tcPr>
+        <w:p w:rsidR="00701D6D" w:rsidRDefault="00701D6D">
+            <w:pPr>
+                <w:pStyle w:val="TableContents" />
+                <w:rPr>
+                    <w:rFonts w:eastAsia="ＭＳ 明朝" />
+                </w:rPr>
+            </w:pPr>
+            <w:r>
+                <w:rPr>
+                    <w:rFonts w:eastAsia="ＭＳ 明朝" w:hint="eastAsia" />
+                </w:rPr>
+                <w:t>ここへ関数の説明を追加してください。</w:t>
+            </w:r>
+        </w:p>
+    </w:tc>
+</w:tr><w:tr w:rsidR="00701D6D" w:rsidTr="00701D6D">
+    <w:trPr>
+        <w:trHeight w:val="413" />
+    </w:trPr>
+    <w:tc>
+        <w:tcPr>
+            <w:tcW w:w="960" w:type="dxa" />
+            <w:vMerge w:val="restart" />
+        </w:tcPr>
+        <w:p w:rsidR="00701D6D" w:rsidRPr="00E011AF" w:rsidRDefault="00701D6D">
+            <w:pPr>
+                <w:pStyle w:val="TableContents" />
+                <w:rPr>
+                    <w:rFonts w:eastAsia="ＭＳ 明朝" />
+                    <w:lang w:val="en-US" />
+                </w:rPr>
+            </w:pPr>
+            <w:r>
+                <w:rPr>
+                    <w:rFonts w:eastAsia="ＭＳ 明朝" w:hint="eastAsia" />
+                    <w:lang w:val="en-US" />
+                </w:rPr>
                 <w:t>func1</w:t>
             </w:r>
         </w:p>
@@ -771,7 +879,115 @@
                 <w:rPr>
                     <w:rFonts w:eastAsia="ＭＳ 明朝" />
                 </w:rPr>
-                <w:t>double, </w:t>
+                <w:t>double, int, </w:t>
+            </w:r>
+        </w:p>
+    </w:tc>
+
+    <w:tc>
+        <w:tcPr>
+            <w:tcW w:w="5137" w:type="dxa" />
+            <w:vMerge w:val="restart" />
+        </w:tcPr>
+        <w:p w:rsidR="00701D6D" w:rsidRDefault="00701D6D">
+            <w:pPr>
+                <w:pStyle w:val="TableContents" />
+                <w:rPr>
+                    <w:rFonts w:eastAsia="ＭＳ 明朝" />
+                </w:rPr>
+            </w:pPr>
+            <w:r>
+                <w:rPr>
+                    <w:rFonts w:eastAsia="ＭＳ 明朝" w:hint="eastAsia" />
+                </w:rPr>
+                <w:t>ここへ関数の説明を追加してください。</w:t>
+            </w:r>
+        </w:p>
+    </w:tc>
+</w:tr><w:tr w:rsidR="00701D6D" w:rsidTr="00701D6D">
+    <w:trPr>
+        <w:trHeight w:val="413" />
+    </w:trPr>
+    <w:tc>
+        <w:tcPr>
+            <w:tcW w:w="960" w:type="dxa" />
+            <w:vMerge w:val="restart" />
+        </w:tcPr>
+        <w:p w:rsidR="00701D6D" w:rsidRPr="00E011AF" w:rsidRDefault="00701D6D">
+            <w:pPr>
+                <w:pStyle w:val="TableContents" />
+                <w:rPr>
+                    <w:rFonts w:eastAsia="ＭＳ 明朝" />
+                    <w:lang w:val="en-US" />
+                </w:rPr>
+            </w:pPr>
+            <w:r>
+                <w:rPr>
+                    <w:rFonts w:eastAsia="ＭＳ 明朝" w:hint="eastAsia" />
+                    <w:lang w:val="en-US" />
+                </w:rPr>
+                <w:t>func3</w:t>
+            </w:r>
+        </w:p>
+    </w:tc>
+
+    <w:tc>
+        <w:tcPr>
+            <w:tcW w:w="1395" w:type="dxa" />
+            <w:vMerge w:val="restart" />
+        </w:tcPr>
+        <w:p w:rsidR="00701D6D" w:rsidRDefault="00701D6D">
+            <w:pPr>
+                <w:pStyle w:val="TableContents" />
+                <w:rPr>
+                    <w:rFonts w:eastAsia="ＭＳ 明朝" />
+                </w:rPr>
+            </w:pPr>
+            <w:r>
+                <w:rPr>
+                    <w:rFonts w:eastAsia="ＭＳ 明朝" />
+                </w:rPr>
+                <w:t>なし</w:t>
+            </w:r>
+        </w:p>
+    </w:tc>
+
+    <w:tc>
+        <w:tcPr>
+            <w:tcW w:w="960" w:type="dxa" />
+        </w:tcPr>
+        <w:p w:rsidR="00701D6D" w:rsidRDefault="00701D6D">
+            <w:pPr>
+                <w:pStyle w:val="TableContents" />
+                <w:rPr>
+                    <w:rFonts w:eastAsia="ＭＳ 明朝" />
+                </w:rPr>
+            </w:pPr>
+            <w:r>
+                <w:rPr>
+                    <w:rFonts w:eastAsia="ＭＳ 明朝" />
+                </w:rPr>
+                <w:t>x, </w:t>
+            </w:r>
+        </w:p>
+    </w:tc>
+
+    <w:tc>
+        <w:tcPr>
+            <w:tcW w:w="1185" w:type="dxa" />
+        </w:tcPr>
+        <w:p w:rsidR="00701D6D" w:rsidRDefault="00701D6D">
+            <w:pPr>
+                <w:pStyle w:val="TableContents" />
+                <w:rPr>
+                    <w:rFonts w:eastAsia="ＭＳ 明朝" />
+                </w:rPr>
+            </w:pPr>
+            <w:r>
+                <w:rPr>
+                    <w:rFonts w:eastAsia="ＭＳ 明朝" />
+                </w:rPr>
+                <w:t>char, </w:t>
             </w:r>
         </w:p>
     </w:tc>

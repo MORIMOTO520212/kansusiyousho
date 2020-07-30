@@ -1,5 +1,5 @@
 <?php
-
+// cookieからフォルダ名を取り出す
 $folderName = $_COOKIE["folder"];
 // cookieからファイル名のリストを取り出す
 $fileNames = $_COOKIE["fileName"];
@@ -12,16 +12,7 @@ foreach ($fileNames as $fileName) {
         // python実行
         $command = "python processing.py ".$dir." ".$fileName;
         exec($command, $output);
-        $str = str_replace("'", "\"", $output[0]);
-        $str = str_replace("\"{", "{", $str);
-        $str = str_replace("}\"", "}", $str);
-        $str = str_replace(": True", ": true", $str);
-        $str = str_replace(": False", ": false", $str);
-        $status = json_decode($str, true);
-        echo $fileName." :<br>";
-        var_dump($status);
-        echo "<br>";
-        // -- pythonでwordを処理 -- //
+        // -- 保存したwordをダウンロード -- //
 
 
         // 最後にファイルを削除

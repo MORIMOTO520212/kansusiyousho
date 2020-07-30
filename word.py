@@ -78,70 +78,82 @@ def transform(status, fileName):
         if(status["function"]["int"]["main"]):
             func = False
 
-
-    # テンプレートを作る
+    # テンプレートを使ってwordを作る
     if(val and func):
 
         # 変数の表を作る
-        for variableType in status["variable"].keys(): # variableType - 変数の型
-            for variableName in status["variable"][variableType]: # variableName - 変数名
-                variable_temp += addV_temp.format(variableType, variableName)
+        for variableType in status["variable"].keys(): # 変数の型
+            for variableName in status["variable"][variableType]: # 変数名
+                variable_temp += addV_temp.format(variableName, variableType)
 
         # 関数の表を作る
-        for functionType in status["function"].keys(): # functionType - 戻り値の型
+        for functionType in status["function"].keys(): # 戻り値の型
             returnType = functionType
 
-            for functionName in status["function"][functionType].keys(): # functionName - 関数名
+            for functionName in status["function"][functionType].keys(): # 関数名
                 argument_type = ""
                 argument_name = ""
 
-                for argumentType in status["function"][functionType][functionName].keys(): # argumentType - 引数の型
-                    argument_type += argumentType + ", "
+                for argumentType in status["function"][functionType][functionName].keys(): # 引数の型
+                    
+                    if argumentType != "return": # 型の場所に入っているreturnは除外
+                        argument_type += argumentType + ", "
 
-                    if argumentType != "return":
-
-                        for argumentName in status["function"][functionType][functionName][argumentType]: # argumentName - 引数名
+                        for argumentName in status["function"][functionType][functionName][argumentType]: # 引数名
                             argument_name += argumentName + ", "
                             argumentInfo = argument_name
-                        function_temp += addF_temp.format(functionName, functionType, argument_name, argument_type)
+
+                if functionName != "main": # main関数は除外
+                    if not argument_name:
+                        argument_name = "なし"
+                    if not argument_type:
+                        argument_type = "なし"
+                    if functionType == "void":
+                        functionType = "なし"
+
+                    function_temp += addF_temp.format(functionName, functionType, argument_name, argument_type)
 
         if status["main"]:
-            returnType = ""
+            returnType   = "なし"
+            argumentInfo = "なし"
+        word = VFtemp.format(variable_temp, function_temp, fileName, returnType, argumentInfo, docId, fmid) # 組み立て
 
-        word = VFtemp.format(variable_temp, function_temp, fileName, returnType, argumentInfo, docId, fmid)
-
-    elif(val):
-        # 変数の表をつくる
-        for variableType in status["variable"].keys(): # variableType - 変数の型
-            for variableName in status["variable"][variableType]: # variableName - 変数名
-                variable_temp += addV_temp.format(variableType, variableName)
-
-        if status["main"]:
-            returnType = "int"
-
-        word = Vtemp.format(variable_temp, fileName, returnType, "なし", docId, fmid)
 
     elif(func):
         # 関数の表を作る
-        for functionType in status["function"].keys(): # functionType - 戻り値の型
+        for functionType in status["function"].keys(): # 戻り値の型
             returnType = functionType
 
-            for functionName in status["function"][functionType].keys(): # functionName - 関数名
+            for functionName in status["function"][functionType].keys(): # 関数名
                 argument_type = ""
                 argument_name = ""
 
-                for argumentType in status["function"][functionType][functionName].keys(): # argumentType - 引数の型
-                    argument_type += argumentType + ", "
+                for argumentType in status["function"][functionType][functionName].keys(): # 引数の型
+                    
+                    if argumentType != "return": # 型の場所に入っているreturnは除外
+                        argument_type += argumentType + ", "
 
-                    if argumentType != "return":
-                        for argumentName in status["function"][functionType][functionName][argumentType]: # argumentName - 引数名
+                        for argumentName in status["function"][functionType][functionName][argumentType]: # 引数名
                             argument_name += argumentName + ", "
                             argumentInfo = argument_name
-                        function_temp += addF_temp.format(functionName, functionType, argumentInfo, argument_type)
+
+                if functionName != "main": # main関数は除外
+                    if not argument_name:
+                        argument_name = "なし"
+                    if not argument_type:
+                        argument_type = "なし"
+                    if functionType == "void":
+                        functionType = "なし"
+
+                    function_temp += addF_temp.format(functionName, functionType, argumentInfo, argument_type)
 
         if status["main"]:
-            returnType = ""
+            returnType   = "なし"
+            argumentInfo = "なし"
             
-        word = Ftemp.format(function_temp, fileName, returnType, argument_name, docId, fmid)
+        word = Ftemp.format(function_temp, fileName, returnType, argument_name, docId, fmid) # 組み立て
+    
+    else:
+        word = False
 
     return word
