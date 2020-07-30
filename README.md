@@ -29,6 +29,12 @@ wordを作る。
 **index.php.css**  
 index.phpに使われるCSS。  
 
+**.py**  
+テスト用  
+
+**.php**  
+テスト用  
+
 ## フォルダの説明
 
 **wordXmlTemplete**  

@@ -1,5 +1,5 @@
 同じ名前のファイルをアップロードした場合上書きされる
-COOKIE
+cookieに入る情報の例
 [fileName] -> 0,main.c,random.c
 [folder] -> 98378
 
