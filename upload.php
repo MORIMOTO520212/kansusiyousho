@@ -12,7 +12,6 @@ $count = count($_FILES['files']['tmp_name']);
 for($i = 0 ; $i < $count ; $i ++ ){
 	if (is_uploaded_file($_FILES["files"]["tmp_name"][$i])){
 		if (move_uploaded_file($_FILES["files"]["tmp_name"][$i], "process/".$dir."/".$_FILES["files"]["name"][$i])){
-			//echo "ok:" . $_FILES["files"]["name"][$i] . "\n";
 			echo "ファイルのアップロードが完了しました。\n";
 		}
 		else{
