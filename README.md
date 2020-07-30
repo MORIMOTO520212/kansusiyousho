@@ -19,3 +19,9 @@ processing.pyを呼び出しwordのxmlファイルをダウンロード
 
 **word.py**  
 wordを作る。
+
+## フォルダの説明
+
+**wordXmlTemplete**  
+wordを作るためのテンプレート。  
+テンプレートとはdocxのファイルをxmlに変換したもの。
