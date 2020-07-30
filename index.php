@@ -31,9 +31,6 @@ if(isset($_COOKIE['folder'])){
         </script>
         <script>
             $(function(){
-                /*================================================
-                    ファイルをドロップした時の処理
-                =================================================*/
                 $('#drag-area').bind('drop', function(e){
                     // デフォルトの挙動を停止
                     e.preventDefault();
@@ -51,9 +48,6 @@ if(isset($_COOKIE['folder'])){
                     return false;
                 });
                 
-                /*================================================
-                    ダミーボタンを押した時の処理
-                =================================================*/
                 $('#btn').click(function() {
                     // ダミーボタンとinput[type="file"]を連動
                     $('input[type="file"]').click();
@@ -67,9 +61,6 @@ if(isset($_COOKIE['folder'])){
                 });
             });
             
-            /*================================================
-                アップロード処理
-            =================================================*/
             function uploadFiles(files) {
             // FormDataオブジェクトを用意
             var fd = new FormData();
@@ -95,7 +86,7 @@ if(isset($_COOKIE['folder'])){
             
             // Ajaxでアップロード処理をするファイルへ内容渡す
             $.ajax({
-                url: 'filesave.php',
+                url: 'upload.php',
                 type: 'POST',
                 data: fd,
                 processData: false,
