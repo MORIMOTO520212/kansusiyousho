@@ -20,6 +20,9 @@ processing.pyを呼び出しwordのxmlファイルをダウンロード
 **word.py**  
 wordを作る。
 
+**index.php.css**  
+index.phpに使われるCSS  
+
 ## フォルダの説明
 
 **wordXmlTemplete**  
