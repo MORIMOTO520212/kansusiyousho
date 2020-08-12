@@ -3,4 +3,5 @@ cookieに入る情報の例
 [fileName] -> 0,main.c,random.c
 [folder] -> 98378
 
+
 変数i, j, kは説明欄にループカウンタを自動的に記述する
