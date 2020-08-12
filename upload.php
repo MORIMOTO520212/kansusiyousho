@@ -6,7 +6,8 @@ if(isset($_COOKIE['folder'])){
 	$dir = rand(10000, 99999);
 	mkdir("process/".$dir);
 }
-
+// ディレクトリのパーミッションを777に変更
+chmod("process/".$dir, 0777);
 setcookie("folder", $dir, time()+3600*24); 
 $count = count($_FILES['files']['tmp_name']);
 for($i = 0 ; $i < $count ; $i ++ ){

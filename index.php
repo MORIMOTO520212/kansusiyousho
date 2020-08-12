@@ -4,17 +4,18 @@ if(isset($_COOKIE['folder'])){
     setcookie('folder', '', time()-3600*24);
 }
 ?>
-
 <!doctype html>
-<html>
+
+<html lang="ja">
     <head>
         <title>C言語基礎 - 関数仕様書生成</title>
-        <link rel="stylesheet" type="text/css" href="assets/index.php.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="description" content="" />
         <link href="https://fonts.googleapis.com/earlyaccess/mplus1p.css" rel="stylesheet" />
         <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
         <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+        <link rel="stylesheet" type="text/css" href="assets/style.css">
         <script>
             function analysis(){
                 if("0" != Cookies.get("fileName")){
