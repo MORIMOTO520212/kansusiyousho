@@ -1,5 +1,14 @@
 <?php
+
+function console_log( $data ){
+    echo '<script>';
+    echo 'console.log('. json_encode( $data ) .')';
+    echo '</script>';
+}
+
 function download($pPath, $pMimeType = null){
+
+    console_log("download XML");
 
     //-- ファイルが読めない時はエラー(もっときちんと書いた方が良いが今回は割愛)
     if (!is_readable($pPath)) { die($pPath); }
@@ -32,6 +41,7 @@ function download($pPath, $pMimeType = null){
 
     //-- 出力
     readfile($pPath);
+    console_log("download now");
 
 }
 
