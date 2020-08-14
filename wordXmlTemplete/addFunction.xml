@@ -1,108 +1,96 @@
-<w:tr w:rsidR="00701D6D" w:rsidTr="00701D6D">
-    <w:trPr>
-        <w:trHeight w:val="413" />
-    </w:trPr>
+<w:tr w:rsidR="001D2EAA" w:rsidTr="001D2EAA">
     <w:tc>
         <w:tcPr>
-            <w:tcW w:w="960" w:type="dxa" />
-            <w:vMerge w:val="restart" />
+            <w:tcW w:w="1278" w:type="dxa"/>
         </w:tcPr>
-        <w:p w:rsidR="00701D6D" w:rsidRPr="00E011AF" w:rsidRDefault="00701D6D">
+        <w:p w:rsidR="001D2EAA" w:rsidRPr="0057648D" w:rsidRDefault="001D2EAA" w:rsidP="001D2EAA">
             <w:pPr>
-                <w:pStyle w:val="TableContents" />
+                <w:pStyle w:val="Standard"/>
                 <w:rPr>
-                    <w:rFonts w:eastAsia="ＭＳ 明朝" />
-                    <w:lang w:val="en-US" />
+                    <w:rFonts w:ascii="Century" w:eastAsia="BIZ UDP明朝 Medium" w:hAnsi="Century"/>
                 </w:rPr>
             </w:pPr>
-            <w:r>
+            <w:r w:rsidRPr="0057648D">
                 <w:rPr>
-                    <w:rFonts w:eastAsia="ＭＳ 明朝" w:hint="eastAsia" />
-                    <w:lang w:val="en-US" />
+                    <w:rFonts w:ascii="Century" w:eastAsia="BIZ UDP明朝 Medium" w:hAnsi="Century"/>
                 </w:rPr>
-                <w:t>{0}</w:t>
+                <w:t>%s</w:t>
             </w:r>
         </w:p>
     </w:tc>
-
     <w:tc>
         <w:tcPr>
-            <w:tcW w:w="1395" w:type="dxa" />
-            <w:vMerge w:val="restart" />
+            <w:tcW w:w="1687" w:type="dxa"/>
         </w:tcPr>
-        <w:p w:rsidR="00701D6D" w:rsidRDefault="00701D6D">
+        <w:p w:rsidR="001D2EAA" w:rsidRPr="0057648D" w:rsidRDefault="001D2EAA" w:rsidP="001D2EAA">
             <w:pPr>
-                <w:pStyle w:val="TableContents" />
+                <w:pStyle w:val="Standard"/>
                 <w:rPr>
-                    <w:rFonts w:eastAsia="ＭＳ 明朝" />
+                    <w:rFonts w:ascii="Century" w:eastAsia="ＭＳ 明朝" w:hAnsi="Century"/>
                 </w:rPr>
             </w:pPr>
-            <w:r>
+            <w:r w:rsidRPr="0057648D">
                 <w:rPr>
-                    <w:rFonts w:eastAsia="ＭＳ 明朝" />
+                    <w:rFonts w:ascii="Century" w:eastAsia="ＭＳ 明朝" w:hAnsi="Century"/>
                 </w:rPr>
-                <w:t>{1}</w:t>
+                <w:t>%s</w:t>
             </w:r>
         </w:p>
     </w:tc>
-
     <w:tc>
         <w:tcPr>
-            <w:tcW w:w="960" w:type="dxa" />
+            <w:tcW w:w="1305" w:type="dxa"/>
         </w:tcPr>
-        <w:p w:rsidR="00701D6D" w:rsidRDefault="00701D6D">
+        <w:p w:rsidR="001D2EAA" w:rsidRPr="0057648D" w:rsidRDefault="001D2EAA" w:rsidP="001D2EAA">
             <w:pPr>
-                <w:pStyle w:val="TableContents" />
+                <w:pStyle w:val="Standard"/>
                 <w:rPr>
-                    <w:rFonts w:eastAsia="ＭＳ 明朝" />
+                    <w:rFonts w:ascii="Century" w:eastAsia="ＭＳ 明朝" w:hAnsi="Century"/>
                 </w:rPr>
             </w:pPr>
-            <w:r>
+            <w:r w:rsidRPr="0057648D">
                 <w:rPr>
-                    <w:rFonts w:eastAsia="ＭＳ 明朝" />
+                    <w:rFonts w:ascii="Century" w:eastAsia="ＭＳ 明朝" w:hAnsi="Century"/>
                 </w:rPr>
-                <w:t>{2}</w:t>
+                <w:t>%s</w:t>
             </w:r>
         </w:p>
     </w:tc>
-
     <w:tc>
         <w:tcPr>
-            <w:tcW w:w="1185" w:type="dxa" />
+            <w:tcW w:w="1248" w:type="dxa"/>
         </w:tcPr>
-        <w:p w:rsidR="00701D6D" w:rsidRDefault="00701D6D">
+        <w:p w:rsidR="001D2EAA" w:rsidRPr="0057648D" w:rsidRDefault="001D2EAA" w:rsidP="001D2EAA">
             <w:pPr>
-                <w:pStyle w:val="TableContents" />
+                <w:pStyle w:val="Standard"/>
                 <w:rPr>
-                    <w:rFonts w:eastAsia="ＭＳ 明朝" />
+                    <w:rFonts w:ascii="Century" w:eastAsia="ＭＳ 明朝" w:hAnsi="Century"/>
                 </w:rPr>
             </w:pPr>
-            <w:r>
+            <w:r w:rsidRPr="0057648D">
                 <w:rPr>
-                    <w:rFonts w:eastAsia="ＭＳ 明朝" />
+                    <w:rFonts w:ascii="Century" w:eastAsia="ＭＳ 明朝" w:hAnsi="Century"/>
                 </w:rPr>
-                <w:t>{3}</w:t>
+                <w:t>%s</w:t>
             </w:r>
         </w:p>
     </w:tc>
-
     <w:tc>
         <w:tcPr>
-            <w:tcW w:w="5137" w:type="dxa" />
-            <w:vMerge w:val="restart" />
+            <w:tcW w:w="4335" w:type="dxa"/>
         </w:tcPr>
-        <w:p w:rsidR="00701D6D" w:rsidRDefault="00701D6D">
+        <w:p w:rsidR="001D2EAA" w:rsidRPr="0057648D" w:rsidRDefault="001D2EAA" w:rsidP="001D2EAA">
             <w:pPr>
-                <w:pStyle w:val="TableContents" />
+                <w:pStyle w:val="Standard"/>
                 <w:rPr>
-                    <w:rFonts w:eastAsia="ＭＳ 明朝" />
+                    <w:rFonts w:ascii="BIZ UDP明朝 Medium" w:eastAsia="BIZ UDP明朝 Medium" w:hAnsi="BIZ UDP明朝 Medium"/>
                 </w:rPr>
             </w:pPr>
-            <w:r>
+            <w:r w:rsidRPr="0057648D">
                 <w:rPr>
-                    <w:rFonts w:eastAsia="ＭＳ 明朝" w:hint="eastAsia" />
+                    <w:rFonts w:ascii="BIZ UDP明朝 Medium" w:eastAsia="BIZ UDP明朝 Medium" w:hAnsi="BIZ UDP明朝 Medium" w:hint="eastAsia"/>
                 </w:rPr>
-                <w:t>ここへ関数の説明を追加してください。</w:t>
+                <w:t>ここへ関数の説明を記述してください。</w:t>
             </w:r>
         </w:p>
     </w:tc>

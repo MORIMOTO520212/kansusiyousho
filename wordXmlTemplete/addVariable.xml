@@ -1,62 +1,59 @@
-<w:tr w:rsidR="00CF069B" w:rsidTr="006A2C65">
+<w:tr w:rsidR="009B439F" w:rsidTr="009B439F">
     <w:tc>
-    <w:tcPr>
-        <w:tcW w:w="1815" w:type="dxa" />
-    </w:tcPr>
-    <w:p w:rsidR="00CF069B" w:rsidRDefault="00E011AF">
-        <w:pPr>
-        <w:pStyle w:val="TableContents" />
-        <w:rPr>
-            <w:rFonts w:eastAsia="ＭＳ 明朝" />
-        </w:rPr>
-        </w:pPr>
-        <w:r>
-        <w:rPr>
-            <w:rFonts w:eastAsia="ＭＳ 明朝" />
-        </w:rPr>
-        <w:t>{0}</w:t>
-        </w:r>
-    </w:p>
+        <w:tcPr>
+            <w:tcW w:w="2376" w:type="dxa"/>
+        </w:tcPr>
+        <w:p w:rsidR="009B439F" w:rsidRPr="0057648D" w:rsidRDefault="0057648D">
+            <w:pPr>
+                <w:pStyle w:val="Standard"/>
+                <w:rPr>
+                    <w:rFonts w:asciiTheme="minorHAnsi" w:eastAsia="BIZ UDP明朝 Medium" w:hAnsiTheme="minorHAnsi"/>
+                </w:rPr>
+            </w:pPr>
+            <w:r w:rsidRPr="0057648D">
+                <w:rPr>
+                    <w:rFonts w:asciiTheme="minorHAnsi" w:eastAsia="BIZ UDP明朝 Medium" w:hAnsiTheme="minorHAnsi"/>
+                </w:rPr>
+                <w:t>%s</w:t>
+            </w:r>
+        </w:p>
     </w:tc>
     <w:tc>
-    <w:tcPr>
-        <w:tcW w:w="1815" w:type="dxa" />
-    </w:tcPr>
-    <w:p w:rsidR="00CF069B" w:rsidRDefault="00E011AF">
-        <w:pPr>
-        <w:pStyle w:val="TableContents" />
-        <w:rPr>
-            <w:rFonts w:eastAsia="ＭＳ 明朝" />
-        </w:rPr>
-        </w:pPr>
-        <w:r>
-        <w:rPr>
-            <w:rFonts w:eastAsia="ＭＳ 明朝" />
-        </w:rPr>
-        <w:t>{1}</w:t>
-        </w:r>
-    </w:p>
+        <w:tcPr>
+            <w:tcW w:w="1276" w:type="dxa"/>
+        </w:tcPr>
+        <w:p w:rsidR="009B439F" w:rsidRPr="0057648D" w:rsidRDefault="0057648D">
+            <w:pPr>
+                <w:pStyle w:val="Standard"/>
+                <w:rPr>
+                    <w:rFonts w:asciiTheme="minorHAnsi" w:eastAsia="ＭＳ 明朝" w:hAnsiTheme="minorHAnsi"/>
+                </w:rPr>
+            </w:pPr>
+            <w:r w:rsidRPr="0057648D">
+                <w:rPr>
+                    <w:rFonts w:asciiTheme="minorHAnsi" w:eastAsia="ＭＳ 明朝" w:hAnsiTheme="minorHAnsi"/>
+                </w:rPr>
+                <w:t>%s</w:t>
+            </w:r>
+        </w:p>
     </w:tc>
     <w:tc>
-    <w:tcPr>
-        <w:tcW w:w="6007" w:type="dxa" />
-    </w:tcPr>
-    <w:p w:rsidR="00CF069B" w:rsidRDefault="00E011AF" w:rsidP="006A2C65">
-        <w:pPr>
-        <w:pStyle w:val="TableContents" />
-        <w:tabs>
-            <w:tab w:val="left" w:pos="975" />
-        </w:tabs>
-        <w:rPr>
-            <w:rFonts w:eastAsia="ＭＳ 明朝" />
-        </w:rPr>
-        </w:pPr>
-        <w:r>
-        <w:rPr>
-            <w:rFonts w:eastAsia="ＭＳ 明朝" w:hint="eastAsia" />
-        </w:rPr>
-        <w:t>ここへ変数の説明を追加してください。</w:t>
-        </w:r>
-    </w:p>
+        <w:tcPr>
+            <w:tcW w:w="6183" w:type="dxa"/>
+        </w:tcPr>
+        <w:p w:rsidR="009B439F" w:rsidRPr="0057648D" w:rsidRDefault="0057648D">
+            <w:pPr>
+                <w:pStyle w:val="Standard"/>
+                <w:rPr>
+                    <w:rFonts w:ascii="BIZ UDP明朝 Medium" w:eastAsia="BIZ UDP明朝 Medium" w:hAnsi="BIZ UDP明朝 Medium"/>
+                </w:rPr>
+            </w:pPr>
+            <w:r w:rsidRPr="0057648D">
+                <w:rPr>
+                    <w:rFonts w:ascii="BIZ UDP明朝 Medium" w:eastAsia="BIZ UDP明朝 Medium" w:hAnsi="BIZ UDP明朝 Medium" w:hint="eastAsia"/>
+                </w:rPr>
+                <w:t>ここへ変数の説明を記述してください。</w:t>
+            </w:r>
+        </w:p>
     </w:tc>
 </w:tr>

@@ -103,7 +103,7 @@ def transform(status, fileName):
                             argument_name += argumentName + ", "
                             argumentInfo = argument_name
 
-                if functionName != "main": # main関数は除外
+                if functionName != "main": # 関数リストからmain関数は除外
                     if not argument_name:
                         argument_name = "なし"
                     if not argument_type:
