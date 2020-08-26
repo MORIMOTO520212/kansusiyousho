@@ -56,7 +56,7 @@ foreach ($fileNames as $fileName) {
     if("0" != $fileName){
         $dir = "process/".$folderName;
 
-        // python実行
+        // analysys.php実行
         $command = "python processing.py ".$dir." ".$fileName;
         exec($command, $output);
 

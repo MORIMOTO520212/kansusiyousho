@@ -157,9 +157,9 @@ def addFunction(type, function):
         return False
 
     if type == "short":
-        function = function[6:] # 型名削除
-        function = re.split("[\(\)]", function) # ex: ['function','int a, int b']
-        funv = function[1].split(",") # ex: ['int a', 'int b']
+        function = function[6:]
+        function = re.split("[\(\)]", function)
+        funv = function[1].split(",")
         if " " not in function[0]:
             Funcdict = multiplyCheckandSet(type, function[0])
             multiplyCombine(funv, Funcdict)
@@ -167,9 +167,9 @@ def addFunction(type, function):
         return False
 
     if type == "long":
-        function = function[5:] # 型名削除
-        function = re.split("[\(\)]", function) # ex: ['function','int a, int b']
-        funv = function[1].split(",") # ex: ['int a', 'int b']
+        function = function[5:]
+        function = re.split("[\(\)]", function)
+        funv = function[1].split(",")
         if " " not in function[0]:
             Funcdict = multiplyCheckandSet(type, function[0])
             multiplyCombine(funv, Funcdict)
