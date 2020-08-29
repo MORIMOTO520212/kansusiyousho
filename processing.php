@@ -1,10 +1,11 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+</html>
 <?php
-
-function console_log( $data ){
-    echo '<script>';
-    echo 'console.log('. json_encode( $data ) .')';
-    echo '</script>';
-}
+require 'analysis.php';
 
 function download($pPath, $pMimeType = null){
 
@@ -49,32 +50,58 @@ function download($pPath, $pMimeType = null){
 $folderName = $_COOKIE["folder"];
 // cookieからファイル名のリストを取り出す
 $fileNames = $_COOKIE["fileName"];
-// リストを配列化
+// cookieリストを配列化
 $fileNames = preg_split('/,/', $fileNames);
+
+// ZIPファイル圧縮
+$zipfileName = "関数仕様書";
+$zip = new ZipArchive;
+$zip->open("process/".$folderName."/".$zipfileName.".zip", ZipArchive::CREATE|ZipArchive::OVERWRITE);
+
 // 配列からファイル名を取り出す
 foreach ($fileNames as $fileName) {
     if("0" != $fileName){
         $dir = "process/".$folderName;
 
-        // analysys.php実行
-        $command = "python processing.py ".$dir." ".$fileName;
-        exec($command, $output);
+        // ソースコードを解析して関数仕様書を書き出す
+        analysis($dir, $fileName);
 
         // 拡張子を除外する
+        $_fileName = $fileName;
         $fileName = str_replace(".cpp", "", $fileName);
         $fileName = str_replace(".c", "", $fileName);
 
         $downloadDir = "process/".$folderName."/".$fileName."関数仕様書.xml";
-
-        // -- 保存したwordをダウンロード -- //
-        download($downloadDir, 'application/zip');
-
-        // 最後にファイルを削除
-        unlink("process/".$folderName."/".$fileName);
-        unlink($downloadDir);
+        
+        // ファイルをZIPに圧縮
+        $zip->addFile($downloadDir);
     }
 }
-// プログラムの終了にディレクトリを削除
-rmdir("process/".$folderName);
+
+// ZIPに圧縮する
+$zip->close();
+
+foreach ($fileNames as $fileName) {
+    if("0" != $fileName){
+        // 最後にファイルを削除
+        //unlink("process/".$folderName."/".$fileName); // example.cpp
+
+        // 拡張子を除外する
+        $fileName = str_replace(".cpp", "", $fileName);
+        $fileName = str_replace(".c", "", $fileName);
+        $downloadDir = "process/".$folderName."/".$fileName."関数仕様書.xml";
+        //unlink($downloadDir); // example関数仕様書.xml
+    }
+}
+
+// ダウンロード
+download("process/".$folderName."/".$zipfileName.".zip", "application/zip");
+
+// ZIPファイル削除
+//unlink("process/".$folderName."/".$zipfileName.".zip");
+
+// ディレクトリを削除
+console_log("remove directory");
+//rmdir("process/".$folderName);
 
 exit;

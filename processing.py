@@ -18,8 +18,10 @@ import re, sys, pprint, word
 #  | 型 double :c 
 #-----------------------------------------#
 args = sys.argv
-dirpath  = args[1]
-fileName = args[2]
+dirpath  = "process"
+fileName = "main.cpp"
+#dirpath  = args[1]
+#fileName = args[2]
 
 dir = dirpath + "/" + fileName
 
@@ -27,7 +29,7 @@ dir = dirpath + "/" + fileName
 fileName = fileName.replace(".cpp", "")
 fileName = fileName.replace(".c", "")
 
-with open(dir, 'r', encoding='utf-8') as f:
+with open(dir, 'r') as f: # encoding='utf-8'
     source = f.read()
 # 改行コード削除
 source = source.replace("\n", "")
@@ -50,6 +52,8 @@ status["variable"] = {}
 status["function"] = {}
 # メインファイルか判断する
 status["main"] = False
+# externの有無
+externString = False
 
 def multiplyCombineCheckandSet(dictpath, type, variableName):
     # statusに引数の変数名と型が存在しなかった場合は作成する
@@ -176,108 +180,110 @@ def addFunction(type, function):
             return function[0]
         return False
 
+
 # 変数の型と変数名を検出する
 for string in code:
     # 非貪欲マッチ
-    int_match    = re.findall('int .*?;', string)
-    double_match = re.findall('double .*?;', string)
-    float_match  = re.findall('float .*?;', string)
-    char_match   = re.findall('char .*?;', string)
-    short_match  = re.findall('short .*?;', string)
-    long_match   = re.findall('long .*?;', string)
+    if "extern" not in string: # externで宣言された関数が含まれていない場合　※引数を検出させないために
+        int_match    = re.findall('int .*?;', string)
+        double_match = re.findall('double .*?;', string)
+        float_match  = re.findall('float .*?;', string)
+        char_match   = re.findall('char .*?;', string)
+        short_match  = re.findall('short .*?;', string)
+        long_match   = re.findall('long .*?;', string)
 
-    if [] != int_match:
-        for var in int_match:
-            addVariable("int", var)
-    
-    if [] != double_match:
-        for var in double_match:
-            addVariable("double", var)
-    
-    if [] != float_match:
-        for var in float_match:
-            addVariable("float", var)
-    
-    if [] != char_match:
-        for var in char_match:
-            addVariable("char", var)
+        if [] != int_match:
+            for var in int_match:
+                addVariable("int", var)
+        
+        if [] != double_match:
+            for var in double_match:
+                addVariable("double", var)
+        
+        if [] != float_match:
+            for var in float_match:
+                addVariable("float", var)
+        
+        if [] != char_match:
+            for var in char_match:
+                addVariable("char", var)
 
-    if [] != short_match:
-        for var in short_match:
-            addVariable("short", var)
+        if [] != short_match:
+            for var in short_match:
+                addVariable("short", var)
 
-    if [] != long_match:
-        for var in long_match:
-            addVariable("long", var)
+        if [] != long_match:
+            for var in long_match:
+                addVariable("long", var)
+    else: # externが含まれている場合
+        externString = string
+
+if externString:
+    # ついでにexternで宣言された関数を見つけ、code配列に関数を追加
+    for externfunc in externString.split("extern"):
+        code.append(externfunc)
+        
 
 # 関数を検出し、関数宣言子と引数の型と引数名を調べる
 for string in code:
     # 非貪欲マッチ
-    void_match   = re.findall('void .*\(.*\)',   string)
-    int_match    = re.findall('int .*\(.*\)',    string) # ex: int function(int a, int b)
-    double_match = re.findall('double .*\(.*\)', string)
-    float_match  = re.findall('float .*\(.*\)',  string)
-    char_match   = re.findall('char .*\(.*\)',   string)
-    short_match  = re.findall('short .*\(.*\)',  string)
-    long_match   = re.findall('long .*\(.*\)',   string)
+    if "extern" not in string: # externで宣言された関数が含まれていない場合
+        void_match   = re.findall('void .*\(.*\)',   string)
+        int_match    = re.findall('int .*\(.*\)',    string) # ex: int function(int a, int b)
+        double_match = re.findall('double .*\(.*\)', string)
+        float_match  = re.findall('float .*\(.*\)',  string)
+        char_match   = re.findall('char .*\(.*\)',   string)
+        short_match  = re.findall('short .*\(.*\)',  string)
+        long_match   = re.findall('long .*\(.*\)',   string)
 
-    if [] != void_match:
-        functionName = addFunction("void", void_match[0])
-        if functionName: # 関数だった場合
-            type = "void"
+        if [] != void_match:
+            functionName = addFunction("void", void_match[0])
+            if functionName: # 関数だった場合
+                type = "void"
 
-    if [] != int_match:
-        functionName = addFunction("int", int_match[0])
-        if functionName:
-            type = "int"
-            if "main" in int_match[0]:
-                status["main"] = True # メインファイルだった場合
+        if [] != int_match:
+            functionName = addFunction("int", int_match[0])
+            if functionName:
+                type = "int"
+                if "main" in int_match[0]:
+                    status["main"] = True # メインファイルだった場合
 
-    if [] != double_match:
-        functionName = addFunction("double", double_match[0])
-        if functionName:
-            type = "double"
+        if [] != double_match:
+            functionName = addFunction("double", double_match[0])
+            if functionName:
+                type = "double"
 
-    if [] != float_match:
-        functionName = addFunction("float", float_match[0])
-        if functionName:
-            type = "float"
-    
-    if [] != char_match:
-        functionName = addFunction("char", char_match[0])
-        if functionName:
-            type = "char"
-    
-    if [] != short_match:
-        functionName = addFunction("short", short_match[0])
-        if functionName:
-            type = "short"
+        if [] != float_match:
+            functionName = addFunction("float", float_match[0])
+            if functionName:
+                type = "float"
+        
+        if [] != char_match:
+            functionName = addFunction("char", char_match[0])
+            if functionName:
+                type = "char"
+        
+        if [] != short_match:
+            functionName = addFunction("short", short_match[0])
+            if functionName:
+                type = "short"
 
-    if [] != long_match:
-        functionName = addFunction("long", long_match[0])
-        if functionName:
-            type = "long"
+        if [] != long_match:
+            functionName = addFunction("long", long_match[0])
+            if functionName:
+                type = "long"
 
-    # 関数の中の戻り値を検出する
-    if not functionName:
-        functionName = blockDetector
-    if functionName:
-        if functionName == blockDetector:
-            if "return" in string:
-                if "return 0" not in string:
-                    status["function"][type][functionName]["return"] = type
-        else:
-            blockDetector = functionName
+        # 関数の中の戻り値を検出する
+        if not functionName:
+            functionName = blockDetector
+        if functionName:
+            if functionName == blockDetector:
+                if "return" in string:
+                    if "return 0" not in string:
+                        status["function"][type][functionName]["return"] = type
+            else:
+                blockDetector = functionName
 
 #pprint.pprint(status, indent=4, width=80)
-try:
-    print(status)
-    word = word.transform(status, fileName)
-    if word:
-        with open(dirpath + "/" + fileName + "関数仕様書.xml", "w", encoding='utf-8') as f:
-            f.write(word)
-        print("出力成功")
-    else:
-        print("組み合わせ失敗")
-except Exception as e:
-    print("False: "+str(e))
+
+print(status)

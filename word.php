@@ -1,4 +1,5 @@
 <?php
+require 'console.php';
 
 # ~ VF ~ < 変数の表と関数の表 >
 # 1 - 変数のデータの記述 addV
@@ -37,15 +38,16 @@
 
 
 function transform($status, $fileName){
+    console_log("[ transform ]");
 
-    console("file get contents");
+    console_log("file get contents");
     $VFtemp    = file_get_contents("wordXmlTemplete/kansusiyoushoVF.xml");
     $Vtemp     = file_get_contents("wordXmlTemplete/kansusiyoushoV.xml" );
     $Ftemp     = file_get_contents("wordXmlTemplete/kansusiyoushoF.xml" );
     $addV_temp = file_get_contents("wordXmlTemplete/addVariable.xml"    );
     $addF_temp = file_get_contents("wordXmlTemplete/addFunction.xml"    );
 
-    console("preg replace");
+    console_log("preg replace");
     $pattern   = "/<!--.*-->/";
     $VFtemp    = preg_replace($pattern, "", $VFtemp);
     $Vtemp     = preg_replace($pattern, "", $Vtemp);
@@ -63,20 +65,22 @@ function transform($status, $fileName){
     $returnType    = "";
 
     # 変数がある場合
-    console("variable count");
+    console_log("variable count");
     if( count($status["variable"]) ){
         $val = true;
     }
     # 関数がある場合
-    console("function count");
+    console_log("function count");
     if( count($status["function"]) ){
         $func = true;
     }
     # main関数だけだった場合は関数なしにする
-    console("checking main function");
+    console_log("checking main function");
     if( count($status["function"]) == 1 ){
-        if( $status["function"]["int"]["main"] ){
-            $func = false;
+        if( array_key_exists("int", $status["function"]) ){
+            if( array_key_exists("main", $status["function"]["int"]) ){
+                $func = false;
+            }
         }
     }
     
@@ -84,7 +88,7 @@ function transform($status, $fileName){
     # 変数と関数の仕様書
     if( $val and $func ){
 
-        console("[variable and function] buiding");
+        console_log("[variable and function] buiding");
 
         # 変数の表を作る
         foreach ($status["variable"] as $variableType => $value) { # 変数の型
@@ -132,7 +136,9 @@ function transform($status, $fileName){
             }
         }
 
-        if( $status["function"]["main"] ){
+
+        if( array_key_exists("main", $status) ){
+            console_log("find main function");
             $returnType   = "なし";
             $argumentInfo = "なし";
         }
@@ -148,7 +154,7 @@ function transform($status, $fileName){
     # 関数のみの仕様書
     else if( $func ){
 
-        console("[function] buiding");
+        console_log("[function] buiding");
 
         foreach ($status["function"] as $functionType => $value) { # 戻り値の型
             $returnType = $functionType;
@@ -199,11 +205,11 @@ function transform($status, $fileName){
 
     }
     else{
-        console("ERROR: status data not found.");
+        console_log("ERROR: status data not found.");
         $word = false;
     }
 
-    console("build successfully");
+    console_log("build successfully");
     return $word;
 }
 ?>
