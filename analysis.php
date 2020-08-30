@@ -255,8 +255,9 @@ function analysis($dirpath, $fileName){
     if($externString){
         // ついでにexternで宣言された関数を見つけ、code配列に関数を追加
         console_log("extern function match");
-        $externString = explode("extern", $externString);
+        $externString = explode(";", $externString);
         foreach ($externString as $externfunc) {
+            $externfunc = str_replace("extern", "", $externfunc);
             array_push($code, $externfunc);
         }
     }
@@ -353,5 +354,6 @@ function analysis($dirpath, $fileName){
     $file = fopen($dirpath."/".$fileName."関数仕様書.xml", "w");
     fwrite($file, $word);
     fclose($file);
+
 }
 ?>

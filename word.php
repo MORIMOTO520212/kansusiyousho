@@ -103,7 +103,7 @@ function transform($status, $fileName){
         foreach ($status["function"] as $functionType => $value) { # 戻り値の型
             $returnType = $functionType;
 
-            if( strcmp($functionType, "main") ){ # 関数リストからmain関数は除外
+            if( $functionType == "main") ){ # 関数リストからmain関数は除外
                 foreach ($status["function"][$functionType] as $functionName => $value) { # 関数名
                     $argument_type = "";
                     $argument_name = "";

@@ -220,7 +220,8 @@ for string in code:
 
 if externString:
     # ついでにexternで宣言された関数を見つけ、code配列に関数を追加
-    for externfunc in externString.split("extern"):
+    for externfunc in externString.split(";"):
+        externfunc = externfunc.replace("extern", "")
         code.append(externfunc)
         
 

@@ -1,0 +1,38 @@
+{
+    "variable": {
+        "int": [
+            "input[10]", 
+            "output[10]", 
+            "data1[10]", 
+            "data2[10]", 
+            "i"
+        ]
+    }, 
+    "function": {
+        "void": {
+            "InsertionSort": {
+                "int": [
+                    "n", 
+                    "input[]", 
+                    "output[]"
+                ]
+            }, 
+            "SelectionSort": {
+                "int": [
+                    "n", 
+                    "data[]"
+                ]
+            }, 
+            "BubbleSort": {
+                "int": [
+                    "n", 
+                    "data[]"
+                ]
+            }
+        }, 
+        "int": {
+            "main": {}
+        }
+    }, 
+    "main": true
+}
