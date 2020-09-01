@@ -104,4 +104,5 @@ download("process/".$folderName."/".$zipfileName.".zip", "application/zip");
 console_log("remove directory");
 //rmdir("process/".$folderName);
 
-exit;
+//header("Location:index.php");
+//exit;

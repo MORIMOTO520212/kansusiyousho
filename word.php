@@ -94,7 +94,7 @@ function transform($status, $fileName){
         foreach ($status["variable"] as $variableType => $value) { # 変数の型
 
             foreach ($status["variable"][$variableType] as $variableName) { # 変数名
-
+                
                 $variable_temp .= sprintf($addV_temp, $variableName, $variableType);
             }
         }
