@@ -103,11 +103,12 @@ function transform($status, $fileName){
         foreach ($status["function"] as $functionType => $value) { # 戻り値の型
             $returnType = $functionType;
 
-            if( $functionType == "main") ){ # 関数リストからmain関数は除外
-                foreach ($status["function"][$functionType] as $functionName => $value) { # 関数名
-                    $argument_type = "";
-                    $argument_name = "";
+            foreach ($status["function"][$functionType] as $functionName => $value) { # 関数名
 
+                $argument_type = "";
+                $argument_name = "";
+
+                if($functionName != "main"){
                     foreach ($status["function"][$functionType][$functionName] as $argumentType => $value) { # 引数の型
                         
                         if( strcmp($argumentType, "return") ){ # 型の場所に入っているreturnは除外
@@ -119,19 +120,19 @@ function transform($status, $fileName){
                             }
                         }
                     }
-                    # 引数がなければ
-                    if( strcmp($functionName, "main") ){ # 関数リストからmain関数は除外 2
-                        if ( !$argument_name ){
-                            $argument_name = "なし";
-                        }
-                        if ( !$argument_type ){ 
-                            $argument_type = "なし";
-                        }
-                        if ( !strcmp($functionType, "void") ){
-                            $functionType  = "なし";
-                        }
-                        $function_temp .= sprintf($addF_temp, $functionName, $functionType, $argument_name, $argument_type);
+                }
+                # 引数がなければ
+                if($functionName != "main"){ # main関数があった場合
+                    if (!$argument_name){
+                        $argument_name = "なし";
                     }
+                    if (!$argument_type){ 
+                        $argument_type = "なし";
+                    }
+                    if ($functionType == "void"){
+                        $functionType  = "なし";
+                    }
+                    $function_temp .= sprintf($addF_temp, $functionName, $functionType, $argument_name, $argument_type);
                 }
             }
         }
@@ -152,7 +153,7 @@ function transform($status, $fileName){
 
     }
     # 関数のみの仕様書
-    else if( $func ){
+    elseif( $func ){
 
         console_log("[function] buiding");
 
