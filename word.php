@@ -107,10 +107,11 @@ function transform($status, $fileName){
 
                 $argument_type = "";
                 $argument_name = "";
+                $functiontype = $functionType;
 
                 if($functionName != "main"){
+                    
                     foreach ($status["function"][$functionType][$functionName] as $argumentType => $value) { # 引数の型
-                        
                         if( strcmp($argumentType, "return") ){ # 型の場所に入っているreturnは除外
                             $argument_type .= $argumentType.", ";
 
@@ -130,9 +131,9 @@ function transform($status, $fileName){
                         $argument_type = "なし";
                     }
                     if ($functionType == "void"){
-                        $functionType  = "なし";
+                        $functiontype  = "なし";
                     }
-                    $function_temp .= sprintf($addF_temp, $functionName, $functionType, $argument_name, $argument_type);
+                    $function_temp .= sprintf($addF_temp, $functionName, $functiontype, $argument_name, $argument_type);
                 }
             }
         }

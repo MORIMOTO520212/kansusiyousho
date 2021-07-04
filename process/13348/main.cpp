@@ -14,33 +14,32 @@ int main() {
 	int data2[10];
 	int i;
 
-	/* —””­¶‚Ì‰Šú‰» */
 	srand(time(NULL));
-	/* —””­¶ */
-	printf("Œ³ƒf[ƒ^F\n");
+
+	printf("ï¿½ï¿½ï¿½fï¿½[ï¿½^ï¿½F\n");
 	for (i = 0; i < 10; i++) {
 		input[i] = rand();
-		printf("%d”Ô–Ú‚Ìƒf[ƒ^F%d\n", i + 1, input[i]);
+		printf("%dï¿½Ô–Ú‚Ìƒfï¿½[ï¿½^ï¿½F%d\n", i + 1, input[i]);
 		data1[i] = input[i];
 		data2[i] = input[i];
 	}
-	/* ’Pƒ‘}“ü–@ */
+	/* ï¿½Pï¿½ï¿½ï¿½}ï¿½ï¿½ï¿½@ */
 	InsertionSort(10, input, output);
-	printf("’Pƒ‘}“ü–@F\n");
+	printf("ï¿½Pï¿½ï¿½ï¿½}ï¿½ï¿½ï¿½@ï¿½F\n");
 	for (i = 0; i < 10; i++) {
-		printf("%d”Ô–Ú‚Ìƒf[ƒ^F%d\n", i + 1, output[i]);
+		printf("%dï¿½Ô–Ú‚Ìƒfï¿½[ï¿½^ï¿½F%d\n", i + 1, output[i]);
 	}
-	/* ’Pƒ‘I‘ğ–@ */
+	/* ï¿½Pï¿½ï¿½ï¿½Iï¿½ï¿½@ */
 	SelectionSort(10, data1);
-	printf("’Pƒ‘I‘ğ–@F\n");
+	printf("ï¿½Pï¿½ï¿½ï¿½Iï¿½ï¿½@ï¿½F\n");
 	for (i = 0; i < 10; i++) {
-		printf("%d”Ô–Ú‚Ìƒf[ƒ^F%d\n", i + 1, data1[i]);
+		printf("%dï¿½Ô–Ú‚Ìƒfï¿½[ï¿½^ï¿½F%d\n", i + 1, data1[i]);
 	}
-	/* ƒoƒuƒ‹ƒ\[ƒg */
+	/* ï¿½oï¿½uï¿½ï¿½ï¿½\ï¿½[ï¿½g */
 	BubbleSort(10, data2);
-	printf("ƒoƒuƒ‹ƒ\[ƒgF\n");
+	printf("\n");
 	for (i = 0; i < 10; i++) {
-		printf("%d”Ô–Ú‚Ìƒf[ƒ^F%d\n", i + 1, data2[i]);
+		printf("\n", i + 1, data2[i]);
 	}
 	return 0;
 }

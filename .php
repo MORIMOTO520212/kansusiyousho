@@ -73,6 +73,8 @@ function transform($status, $fileName){
 
                 if($functionName != "main"){
                     console_log("[\$functionName] ".$functionName);
+                    var_dump( $functionType );
+                    
                     foreach ($status["function"][$functionType][$functionName] as $argumentType => $value) { # 引数の型
                         console_log("[\$argumentType] ".$argumentType);
                         if($argumentType != "return"){ # 型の場所に入っているreturnは除外
@@ -94,9 +96,9 @@ function transform($status, $fileName){
                         $argument_type = "なし";
                     }
                     if ($functionType == "void"){
-                        $functionType  = "なし";
+                        $functiontype  = "なし";
                     }
-                    $function_temp .= sprintf($addF_temp, $functionName, $functionType, $argument_name, $argument_type);
+                    $function_temp .= sprintf($addF_temp, $functionName, $functiontype, $argument_name, $argument_type);
                 }
             }
         }
